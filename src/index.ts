@@ -144,31 +144,41 @@ const USBPrinter = {
       resolve();
     }),
 
-  printText: (text: string, opts: PrinterOptions = {}): void =>
-    RNUSBPrinter.printRawData(textTo64Buffer(text, opts), (error: Error) =>
-      console.warn(error)
-    ),
+  printText: (text: string, opts: PrinterOptions = {}, log?: any): void =>
+    RNUSBPrinter.printRawData(textTo64Buffer(text, opts), (error: Error) => {
+      log(error);
+      console.warn(error);
+    }),
 
-  printBill: (text: string, opts: PrinterOptions = {}): void =>
-    RNUSBPrinter.printRawData(billTo64Buffer(text, opts), (error: Error) =>
-      console.warn(error)
-    ),
+  printBill: (text: string, opts: PrinterOptions = {}, log?: any): void =>
+    RNUSBPrinter.printRawData(billTo64Buffer(text, opts), (error: Error) => {
+      log(error);
+      console.warn(error);
+    }),
   /**
    * image url
    * @param imgUrl
    * @param opts
    */
-  printImage: function (imgUrl: string, opts: PrinterImageOptions = {}) {
+  printImage: function (
+    imgUrl: string,
+    opts: PrinterImageOptions = {},
+    log?: any
+  ) {
     if (Platform.OS === "ios") {
-      RNUSBPrinter.printImageData(imgUrl, opts, (error: Error) =>
-        console.warn(error)
-      );
+      RNUSBPrinter.printImageData(imgUrl, opts, (error: Error) => {
+        log(error);
+        console.warn(error);
+      });
     } else {
       RNUSBPrinter.printImageData(
         imgUrl,
         opts?.imageWidth ?? 0,
         opts?.imageHeight ?? 0,
-        (error: Error) => console.warn(error)
+        (error: Error) => {
+          log(error);
+          console.warn(error);
+        }
       );
     }
   },
@@ -177,7 +187,11 @@ const USBPrinter = {
    * @param Base64
    * @param opts
    */
-  printImageBase64: function (Base64: string, opts: PrinterImageOptions = {}) {
+  printImageBase64: function (
+    Base64: string,
+    opts: PrinterImageOptions = {},
+    log?: any
+  ) {
     if (Platform.OS === "ios") {
       RNUSBPrinter.printImageBase64(Base64, opts, (error: Error) =>
         console.warn(error)
@@ -187,7 +201,10 @@ const USBPrinter = {
         Base64,
         opts?.imageWidth ?? 0,
         opts?.imageHeight ?? 0,
-        (error: Error) => console.warn(error)
+        (error: Error) => {
+          log(error);
+          console.warn(error);
+        }
       );
     }
   },
@@ -195,10 +212,13 @@ const USBPrinter = {
    * android print with encoder
    * @param text
    */
-  printRaw: (text: string): void => {
+  printRaw: (text: string, log?: any): void => {
     if (Platform.OS === "ios") {
     } else {
-      RNUSBPrinter.printRawData(text, (error: Error) => console.warn(error));
+      RNUSBPrinter.printRawData(text, (error: Error) => {
+        log(error);
+        console.warn(error);
+      });
     }
   },
   /**
