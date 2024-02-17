@@ -134,6 +134,7 @@ var USBPrinter = {
     },
     printText: function (text, opts, log) {
         if (opts === void 0) { opts = {}; }
+        if (log === void 0) { log = function () { }; }
         return RNUSBPrinter.printRawData(textTo64Buffer(text, opts), function (error) {
             log(error);
             console.warn(error);
@@ -141,6 +142,7 @@ var USBPrinter = {
     },
     printBill: function (text, opts, log) {
         if (opts === void 0) { opts = {}; }
+        if (log === void 0) { log = function () { }; }
         return RNUSBPrinter.printRawData(billTo64Buffer(text, opts), function (error) {
             log(error);
             console.warn(error);
@@ -150,10 +152,12 @@ var USBPrinter = {
      * image url
      * @param imgUrl
      * @param opts
+     * @param log
      */
     printImage: function (imgUrl, opts, log) {
         var _a, _b;
         if (opts === void 0) { opts = {}; }
+        if (log === void 0) { log = function () { }; }
         if (Platform.OS === "ios") {
             RNUSBPrinter.printImageData(imgUrl, opts, function (error) {
                 log(error);
@@ -171,10 +175,12 @@ var USBPrinter = {
      * base 64 string
      * @param Base64
      * @param opts
+     * @param log
      */
     printImageBase64: function (Base64, opts, log) {
         var _a, _b;
         if (opts === void 0) { opts = {}; }
+        if (log === void 0) { log = function () { }; }
         if (Platform.OS === "ios") {
             RNUSBPrinter.printImageBase64(Base64, opts, function (error) {
                 return console.warn(error);
@@ -190,8 +196,10 @@ var USBPrinter = {
     /**
      * android print with encoder
      * @param text
+     * @param log
      */
     printRaw: function (text, log) {
+        if (log === void 0) { log = function () { }; }
         if (Platform.OS === "ios") {
         }
         else {

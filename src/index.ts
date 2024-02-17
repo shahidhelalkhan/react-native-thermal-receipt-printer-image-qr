@@ -144,13 +144,21 @@ const USBPrinter = {
       resolve();
     }),
 
-  printText: (text: string, opts: PrinterOptions = {}, log?: any): void =>
+  printText: (
+    text: string,
+    opts: PrinterOptions = {},
+    log: any = () => {}
+  ): void =>
     RNUSBPrinter.printRawData(textTo64Buffer(text, opts), (error: Error) => {
       log(error);
       console.warn(error);
     }),
 
-  printBill: (text: string, opts: PrinterOptions = {}, log?: any): void =>
+  printBill: (
+    text: string,
+    opts: PrinterOptions = {},
+    log: any = () => {}
+  ): void =>
     RNUSBPrinter.printRawData(billTo64Buffer(text, opts), (error: Error) => {
       log(error);
       console.warn(error);
@@ -159,11 +167,12 @@ const USBPrinter = {
    * image url
    * @param imgUrl
    * @param opts
+   * @param log
    */
   printImage: function (
     imgUrl: string,
     opts: PrinterImageOptions = {},
-    log?: any
+    log: any = () => {}
   ) {
     if (Platform.OS === "ios") {
       RNUSBPrinter.printImageData(imgUrl, opts, (error: Error) => {
@@ -186,11 +195,12 @@ const USBPrinter = {
    * base 64 string
    * @param Base64
    * @param opts
+   * @param log
    */
   printImageBase64: function (
     Base64: string,
     opts: PrinterImageOptions = {},
-    log?: any
+    log: any = () => {}
   ) {
     if (Platform.OS === "ios") {
       RNUSBPrinter.printImageBase64(Base64, opts, (error: Error) =>
@@ -211,8 +221,9 @@ const USBPrinter = {
   /**
    * android print with encoder
    * @param text
+   * @param log
    */
-  printRaw: (text: string, log?: any): void => {
+  printRaw: (text: string, log: any = () => {}): void => {
     if (Platform.OS === "ios") {
     } else {
       RNUSBPrinter.printRawData(text, (error: Error) => {

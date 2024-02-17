@@ -49,17 +49,20 @@ declare const USBPrinter: {
      * image url
      * @param imgUrl
      * @param opts
+     * @param log
      */
     printImage: (imgUrl: string, opts?: PrinterImageOptions, log?: any) => void;
     /**
      * base 64 string
      * @param Base64
      * @param opts
+     * @param log
      */
     printImageBase64: (Base64: string, opts?: PrinterImageOptions, log?: any) => void;
     /**
      * android print with encoder
      * @param text
+     * @param log
      */
     printRaw: (text: string, log?: any) => void;
     /**
