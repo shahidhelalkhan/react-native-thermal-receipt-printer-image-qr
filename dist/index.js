@@ -117,8 +117,9 @@ var USBPrinter = {
         });
     },
     getArabicBase64: function (text, align, width, marginLeft) {
-        console.log("Printing", RNUSBPrinter.drawArabic(text, align, width, marginLeft));
-        return RNUSBPrinter.drawArabic(text, align, width, marginLeft);
+        return new Promise(function (resolve) {
+            return RNUSBPrinter.drawArabic(text, align, width, marginLeft, function (result) { return resolve(result); });
+        });
     },
     getDeviceList: function () {
         return new Promise(function (resolve, reject) {

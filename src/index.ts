@@ -124,13 +124,16 @@ const USBPrinter = {
     align: string,
     width: number,
     marginLeft: number
-  ): String => {
-    console.log(
-      "Printing",
-      RNUSBPrinter.drawArabic(text, align, width, marginLeft)
-    );
-    return RNUSBPrinter.drawArabic(text, align, width, marginLeft);
-  },
+  ): Promise<String> =>
+    new Promise((resolve) => {
+      return RNUSBPrinter.drawArabic(
+        text,
+        align,
+        width,
+        marginLeft,
+        (result: String) => resolve(result)
+      );
+    }),
 
   getDeviceList: (): Promise<IUSBPrinter[]> =>
     new Promise((resolve, reject) =>
