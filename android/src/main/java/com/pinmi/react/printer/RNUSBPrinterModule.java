@@ -66,11 +66,11 @@ public class RNUSBPrinterModule extends ReactContextBaseJavaModule implements RN
         adapter.printRawData(base64Data, errorCallback);
     }
 
-     @ReactMethod
+    @ReactMethod
     @Override
     public String drawArabic(String text, String align, int width, int marginLeft,Callback callback){
         String result = adapter.drawArabic(text, align, width, marginLeft);
-        callback.invoke(result); // Pass the result back to JavaScript
+        callback.invoke(result);
         
     }
 

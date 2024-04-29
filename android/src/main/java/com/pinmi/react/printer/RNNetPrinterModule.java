@@ -82,7 +82,7 @@ public class RNNetPrinterModule extends ReactContextBaseJavaModule implements RN
     }
 
     @Override
-    public String drawArabic(String text, String align, int width, int marginLeft) {
+    public String drawArabic(String text, String align, int width, int marginLeft,Callback callback) {
         return "RNBLEPrinter";
     }
 
