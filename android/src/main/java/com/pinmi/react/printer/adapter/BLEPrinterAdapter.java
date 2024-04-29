@@ -5,7 +5,6 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.util.Base64;
 import android.util.Log;
 import android.widget.Toast;
@@ -23,6 +22,10 @@ import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 import android.graphics.BitmapFactory;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 
 /**
  * Created by xiesubin on 2017/9/21.

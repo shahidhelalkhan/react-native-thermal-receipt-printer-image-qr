@@ -8,7 +8,10 @@ import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.util.Base64;
 import android.util.Log;
-
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.Callback;
 import com.facebook.react.bridge.ReactApplicationContext;
