@@ -20,12 +20,14 @@ import android.util.Log;
 import android.widget.Toast;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-
-
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import com.facebook.react.bridge.Callback;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
-
+import java.io.ByteArrayOutputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -241,6 +243,35 @@ public class USBPrinterAdapter implements PrinterAdapter {
             Log.v(LOG_TAG, msg);
             errorCallback.invoke(msg);
         }
+    }
+
+    public String drawArabic(String text, String align, int width, int marginLeft) {
+        int bitmapWidth = width;
+        int bitmapHeight = 50;
+        Bitmap textBitmap = Bitmap.createBitmap(bitmapWidth, bitmapHeight, Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(textBitmap);
+        Paint paint = new Paint();
+        paint.setColor(Color.BLACK); // Set the text color
+        paint.setTextSize(31f); // Set the text size
+        paint.setAntiAlias(true);
+
+        if (align.equals("center")) {
+            Log.d("PRINT_TEST", align + "" + text);
+            paint.setTextAlign(Paint.Align.CENTER);
+        } else if (align.equals("right")) {
+            paint.setTextAlign(Paint.Align.LEFT);
+        } else {
+            Log.d("PRINT_TEST", align + "" + text);
+            paint.setTextAlign(Paint.Align.RIGHT);
+        }
+
+        float xPosition = (bitmapWidth / 2) + marginLeft;
+        float yPosition = bitmapHeight / 2 - (paint.descent() + paint.ascent()) / 2;
+        canvas.drawText(text, xPosition, yPosition, paint);
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        textBitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+        byte[] byteArray = byteArrayOutputStream.toByteArray();
+        return Base64.encodeToString(byteArray, Base64.DEFAULT);
     }
 
     public static Bitmap getBitmapFromURL(String src) {
