@@ -94,4 +94,9 @@ public class RNBLEPrinterModule extends ReactContextBaseJavaModule implements RN
     public String getName() {
         return "RNBLEPrinter";
     }
+
+     @Override
+    public String getArabicBase64(String text, String align, int width, int marginLeft) {
+        return "RNBLEPrinter";
+    }
 }
