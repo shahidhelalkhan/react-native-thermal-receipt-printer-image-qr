@@ -18,7 +18,7 @@ public interface RNPrinterModule {
     public void printRawData(String base64Data, Callback errorCallback) ;
 
     @ReactMethod
-    public void getArabicBase64(String text, String align, int width, int marginLeft) ;
+    public void drawArabic(String text, String align, int width, int marginLeft) ;
 
     @ReactMethod
     public void printImageData(String imageUrl, int imageWidth, int imageHeight, Callback errorCallback);
