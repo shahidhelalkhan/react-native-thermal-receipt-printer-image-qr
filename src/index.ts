@@ -119,6 +119,18 @@ const USBPrinter = {
         (error: Error) => reject(error)
       )
     ),
+  getArabicBase64: (
+    text: string,
+    align: string,
+    width: number,
+    marginLeft: number
+  ): String => {
+    console.log(
+      "Printing",
+      RNUSBPrinter.drawArabic(text, align, width, marginLeft)
+    );
+    return RNUSBPrinter.drawArabic(text, align, width, marginLeft);
+  },
 
   getDeviceList: (): Promise<IUSBPrinter[]> =>
     new Promise((resolve, reject) =>

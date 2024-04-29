@@ -116,6 +116,10 @@ var USBPrinter = {
             return RNUSBPrinter.init(function () { return resolve(); }, function (error) { return reject(error); });
         });
     },
+    getArabicBase64: function (text, align, width, marginLeft) {
+        console.log("Printing", RNUSBPrinter.drawArabic(text, align, width, marginLeft));
+        return RNUSBPrinter.drawArabic(text, align, width, marginLeft);
+    },
     getDeviceList: function () {
         return new Promise(function (resolve, reject) {
             return RNUSBPrinter.getDeviceList(function (printers) { return resolve(printers); }, function (error) { return reject(error); });
