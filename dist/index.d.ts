@@ -40,7 +40,7 @@ export declare enum ColumnAlignment {
 }
 declare const USBPrinter: {
     init: () => Promise<void>;
-    getArabicBase64: (text: string, align: string, width: number, marginLeft: number) => Promise<String>;
+    getArabicBase64: (text: string, align: string, width: number, height: number, marginLeft: number, marginTop: number) => Promise<String>;
     getDeviceList: () => Promise<IUSBPrinter[]>;
     connectPrinter: (vendorId: string, productId: string) => Promise<IUSBPrinter>;
     closeConn: () => Promise<void>;

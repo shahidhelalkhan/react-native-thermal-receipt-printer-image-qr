@@ -116,9 +116,9 @@ var USBPrinter = {
             return RNUSBPrinter.init(function () { return resolve(); }, function (error) { return reject(error); });
         });
     },
-    getArabicBase64: function (text, align, width, marginLeft) {
+    getArabicBase64: function (text, align, width, height, marginLeft, marginTop) {
         return new Promise(function (resolve) {
-            return RNUSBPrinter.drawArabic(text, align, width, marginLeft, function (result) { return resolve(result); });
+            return RNUSBPrinter.drawArabic(text, align, width, height, marginLeft, marginTop, function (result) { return resolve(result); });
         });
     },
     getDeviceList: function () {
