@@ -258,18 +258,20 @@ public class USBPrinterAdapter implements PrinterAdapter {
         paint.setAntiAlias(true);
 
        
-    if(align==="center"){
-                Log.d("PRINT_TEST",align+""+text)
-                paint.textAlign = Paint.Align.CENTER
-            }else if(align==="right") {
-                paint.textAlign = Paint.Align.LEFT
-            }else{
-                Log.d("PRINT_TEST",align+""+text)
-                paint.textAlign = Paint.Align.RIGHT
-            }
+   if (align.equals("center")) {
+    Log.d("PRINT_TEST", align + "" + text);
+    paint.setTextAlign(Paint.Align.CENTER);
+} else if (align.equals("right")) {
+    paint.setTextAlign(Paint.Align.RIGHT);
+} else {
+    Log.d("PRINT_TEST", align + "" + text);
+    paint.setTextAlign(Paint.Align.LEFT);
+}
 
-        float xPosition = (bitmapWidth / 2) + marginLeft;
-        float yPosition = bitmapHeight / 2 - (paint.descent() + paint.ascent()) / 2;
+        // float xPosition = (bitmapWidth / 2) + marginLeft;
+        // float yPosition = bitmapHeight / 2 - (paint.descent() + paint.ascent()) / 2;
+        float xPosition = marginLeft;
+        float yPosition = 0;
         canvas.drawText(text, xPosition, yPosition, paint);
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         textBitmap.compress(Bitmap.CompressFormat.WEBP, 80, byteArrayOutputStream);
