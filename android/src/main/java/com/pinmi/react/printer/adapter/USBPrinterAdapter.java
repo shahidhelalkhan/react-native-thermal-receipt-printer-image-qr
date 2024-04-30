@@ -248,19 +248,19 @@ public class USBPrinterAdapter implements PrinterAdapter {
     public String drawArabic(String text, String align, int width, int marginLeft) {
         
         int bitmapWidth = width;
-        int bitmapHeight = 20;
+        int bitmapHeight = 30;
         Bitmap textBitmap = Bitmap.createBitmap(bitmapWidth, bitmapHeight, Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(textBitmap);
         canvas.drawColor(Color.WHITE);
         Paint paint = new Paint();
         paint.setColor(Color.BLACK); // Set the text color
-        paint.setTextSize(12f); // Set the text size
+        paint.setTextSize(16f); // Set the text size
         paint.setAntiAlias(true);
 
         // Set text alignment
     if (align.equals("center")) {
         paint.setTextAlign(Paint.Align.CENTER);
-    } else if (align.equals("right")) {
+    } else if (align.equals("right")) {`
         paint.setTextAlign(Paint.Align.RIGHT);
     } else {
         paint.setTextAlign(Paint.Align.LEFT);
