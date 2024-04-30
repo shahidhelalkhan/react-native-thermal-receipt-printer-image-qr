@@ -275,7 +275,7 @@ public class USBPrinterAdapter implements PrinterAdapter {
         float yPosition = marginTop;
         canvas.drawText(text, xPosition, yPosition, paint);
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        textBitmap.compress(Bitmap.CompressFormat.WEBP, 5, byteArrayOutputStream);
+        textBitmap.compress(Bitmap.CompressFormat.WEBP, 1, byteArrayOutputStream);
         byte[] byteArray = byteArrayOutputStream.toByteArray();
         return Base64.encodeToString(byteArray, Base64.DEFAULT);
     }
