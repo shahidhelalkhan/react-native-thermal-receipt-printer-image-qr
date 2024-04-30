@@ -103,7 +103,7 @@ public class BLEPrinterAdapter implements PrinterAdapter{
         return printerDevices;
     }
 
-    public String drawArabic(String text, String align, int width, int marginLeft) {
+    public String drawArabic(String text, String align, int width,int height, int marginLeft,int marginTop) {
         int bitmapWidth = width;
         int bitmapHeight = 50;
         Bitmap textBitmap = Bitmap.createBitmap(bitmapWidth, bitmapHeight, Bitmap.Config.ARGB_8888);
