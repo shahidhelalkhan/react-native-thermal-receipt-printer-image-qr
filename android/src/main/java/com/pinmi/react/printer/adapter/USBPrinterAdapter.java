@@ -245,7 +245,7 @@ public class USBPrinterAdapter implements PrinterAdapter {
         }
     }
 
-    public String drawArabic(String text, String align, int width,int height, int marginLeft,int marginTop,) {
+    public String drawArabic(String text, String align, int width,int height, int marginLeft,int marginTop) {
         
         int bitmapWidth = width;
         int bitmapHeight = height;
