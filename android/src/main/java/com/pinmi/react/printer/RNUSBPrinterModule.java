@@ -68,8 +68,8 @@ public class RNUSBPrinterModule extends ReactContextBaseJavaModule implements RN
 
     @ReactMethod
     @Override
-    public void drawArabic(String text, String align, int width, int marginLeft,Callback callback){
-        String result = adapter.drawArabic(text, align, width, marginLeft);
+    public void drawArabic(String text, String align, int width,int height, int marginLeft,int marginTop,Callback callback){
+        String result = adapter.drawArabic(text, align, width,height, marginLeft,marginTop);
         callback.invoke(result);
         
     }

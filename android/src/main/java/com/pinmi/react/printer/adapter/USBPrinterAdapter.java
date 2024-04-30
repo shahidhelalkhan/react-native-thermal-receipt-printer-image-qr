@@ -245,10 +245,10 @@ public class USBPrinterAdapter implements PrinterAdapter {
         }
     }
 
-    public String drawArabic(String text, String align, int width, int marginLeft) {
+    public String drawArabic(String text, String align, int width,int height, int marginLeft,int marginTop,) {
         
         int bitmapWidth = width;
-        int bitmapHeight = 22;
+        int bitmapHeight = height;
         Bitmap textBitmap = Bitmap.createBitmap(bitmapWidth, bitmapHeight, Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(textBitmap);
         canvas.drawColor(Color.WHITE);
@@ -268,10 +268,9 @@ public class USBPrinterAdapter implements PrinterAdapter {
     paint.setTextAlign(Paint.Align.LEFT);
 }
 
-        // float xPosition = (bitmapWidth / 2) + marginLeft;
-        // float yPosition = bitmapHeight / 2 - (paint.descent() + paint.ascent()) / 2;
+        
         float xPosition = marginLeft;
-        float yPosition = 0;
+        float yPosition = marginTop;
         canvas.drawText(text, xPosition, yPosition, paint);
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         textBitmap.compress(Bitmap.CompressFormat.WEBP, 80, byteArrayOutputStream);

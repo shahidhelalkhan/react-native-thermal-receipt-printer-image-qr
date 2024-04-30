@@ -27,7 +27,7 @@ public interface PrinterAdapter {
 
     public void printRawData(String rawBase64Data, Callback errorCallback);
 
-    public String drawArabic(String text, String align, int width, int marginLeft) ;
+    public String drawArabic(String text, String align, int width,int height, int marginLeft,int marginTop) ;
 
     public void printImageData(String imageUrl, int imageWidth, int imageHeight, Callback errorCallback);
 
