@@ -260,7 +260,7 @@ public class USBPrinterAdapter implements PrinterAdapter {
         // Set text alignment
     if (align.equals("center")) {
         paint.setTextAlign(Paint.Align.CENTER);
-    } else if (align.equals("right")) {`
+    } else if (align.equals("right")) {
         paint.setTextAlign(Paint.Align.RIGHT);
     } else {
         paint.setTextAlign(Paint.Align.LEFT);
