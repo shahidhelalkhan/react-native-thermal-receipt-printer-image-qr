@@ -257,14 +257,16 @@ public class USBPrinterAdapter implements PrinterAdapter {
         paint.setTextSize(22f); // Set the text size
         paint.setAntiAlias(true);
 
-        // Set text alignment
-    if (align.equals("center")) {
-        paint.setTextAlign(Paint.Align.CENTER);
-    } else if (align.equals("right")) {
-        paint.setTextAlign(Paint.Align.RIGHT);
-    } else {
-        paint.setTextAlign(Paint.Align.LEFT);
-    }
+       
+    if(align==="center"){
+                Log.d("PRINT_TEST",align+""+text)
+                paint.textAlign = Paint.Align.CENTER
+            }else if(align==="right") {
+                paint.textAlign = Paint.Align.LEFT
+            }else{
+                Log.d("PRINT_TEST",align+""+text)
+                paint.textAlign = Paint.Align.RIGHT
+            }
 
         float xPosition = (bitmapWidth / 2) + marginLeft;
         float yPosition = bitmapHeight / 2 - (paint.descent() + paint.ascent()) / 2;
