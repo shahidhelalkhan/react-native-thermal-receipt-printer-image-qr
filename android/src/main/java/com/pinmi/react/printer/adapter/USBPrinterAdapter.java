@@ -256,9 +256,9 @@ public class USBPrinterAdapter implements PrinterAdapter {
         canvas.drawColor(Color.WHITE);
         Paint paint = new Paint();
         paint.setColor(Color.BLACK); // Set the text color
-        paint.setTextSize(16f); // Set the text size
+        paint.setTextSize(22f); // Set the text size
         paint.setAntiAlias(true);
-        // paint.setFakeBoldText(true);
+        paint.setFakeBoldText(true);
 
 
        
