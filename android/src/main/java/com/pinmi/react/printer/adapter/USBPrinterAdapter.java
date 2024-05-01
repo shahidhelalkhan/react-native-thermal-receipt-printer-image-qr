@@ -379,8 +379,8 @@ public class USBPrinterAdapter implements PrinterAdapter {
             sendDataByte(Command.ESC_Init);
             sendDataByte(Command.LF);
             sendDataByte(data);
-            sendDataByte(PrinterCommand.POS_Set_PrtAndFeedPaper(30));
-            sendDataByte(PrinterCommand.POS_Set_Cut(1));
+            // sendDataByte(PrinterCommand.POS_Set_PrtAndFeedPaper(30));
+            // sendDataByte(PrinterCommand.POS_Set_Cut(1));
             sendDataByte(PrinterCommand.POS_Set_PrtInit());
         }
             // Log.v(LOG_TAG, "Connected to device");
