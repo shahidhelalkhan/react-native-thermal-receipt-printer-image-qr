@@ -374,7 +374,7 @@ public class USBPrinterAdapter implements PrinterAdapter {
              * nMode    打印模式
              * Returns: byte[]
              */
-            byte[] data = PrintPicture.POS_PrintBMP(mBitmap, width, nMode, leftPadding);
+            byte[] data = PrintPicture.POS_PrintBMP(mBitmap, imageWidth, 0, 0);
             //  SendDataByte(buffer);
             sendDataByte(Command.ESC_Init);
             sendDataByte(Command.LF);
