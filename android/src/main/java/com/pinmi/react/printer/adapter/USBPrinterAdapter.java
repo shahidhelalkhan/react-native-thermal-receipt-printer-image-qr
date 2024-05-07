@@ -376,10 +376,10 @@ public class USBPrinterAdapter implements PrinterAdapter {
              */
             byte[] data = PrintPicture.POS_PrintBMP(bitmapImage, imageWidth, 0, 0);
             //  SendDataByte(buffer);
-            // sendDataByte(Command.ESC_Init);
-            // sendDataByte(Command.LF);
+            sendDataByte(Command.ESC_Init);
+            sendDataByte(Command.LF);
             sendDataByte(data);
-            // sendDataByte(PrinterCommand.POS_Set_PrtInit());
+            sendDataByte(PrinterCommand.POS_Set_PrtInit());
         }
           
         } else {
